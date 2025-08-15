@@ -21,7 +21,7 @@ export default function EmptyStoreCard({ onRegister, className }: EmptyStoreCard
 
   const handleRegister = () => {
     if (onRegister) return onRegister();
-    navigate('/productRegister');
+    navigate('/storeRegister');
   };
 
   return (
