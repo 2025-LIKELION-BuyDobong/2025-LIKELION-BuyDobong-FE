@@ -227,6 +227,7 @@ const Dock = styled.div`
 
   @media (hover: none) and (pointer: coarse) {
     left: 12px;
+    top: auto;
     bottom: calc(env(safe-area-inset-bottom, 0px) + var(--gap, 12px));
   }
 `;
