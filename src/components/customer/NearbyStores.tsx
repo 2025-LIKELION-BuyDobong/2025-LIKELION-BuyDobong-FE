@@ -63,11 +63,11 @@ const StoreWrapper = styled.div`
   gap: 3px;
   transition: all 0.2s ease;
   &:hover {
-    transform: translateY(-2px);
+    /* transform: translateY(-2px); */
   }
 
   &:active {
-    transform: translateY(0);
+    /* transform: translateY(0); */
   }
 `;
 

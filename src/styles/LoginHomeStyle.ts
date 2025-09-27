@@ -2,9 +2,12 @@ import styled from 'styled-components';
 import palette from '@lib/colorPalette';
 
 export const LoginHome = styled.div`
-  min-height: 100vh;
+  /* min-height: 100vh; */
+  height: 800px;
+
   background-color: ${palette.brandBackground};
-  padding: 0 30px;
+  /* padding: 112px 30px; */
+  padding: 0px 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -18,7 +21,7 @@ export const Logo = styled.div`
   align-items: center;
 `;
 
-//서비스 네임 및 설명
+// 서비스 네임 및 설명
 export const LogoNameBox = styled.div`
   display: flex;
   flex-direction: column;
@@ -67,7 +70,7 @@ export const StartButton = styled.button`
   color: ${palette.card};
 
   &:hover {
-    background: #256b5a;
+    /* background: #256b5a; */
   }
 
   &:disabled {
@@ -92,7 +95,7 @@ export const LoginButton = styled.button`
   transition: all 0.2s ease;
 
   &:hover {
-    background: #e8f5f2;
+    /* background: #e8f5f2; */
   }
 
   &:disabled {

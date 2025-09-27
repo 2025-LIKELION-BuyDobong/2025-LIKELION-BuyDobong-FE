@@ -82,6 +82,30 @@ export default function StoreDetailPage() {
         if (!alive) return;
         const error = e as { response?: { data?: { message?: string } } };
         setErr(error?.response?.data?.message || '상점 정보를 불러오지 못했어요.');
+
+        // const err = e as { response?: { status?: number; data?: { message?: string } } };
+        // const status = err?.response?.status;
+        // if (status === 500) {
+        //   try {
+        //     const res = await fetch(`https://n0t4u.shop/api/store/${id}/detail`, {
+        //       method: 'GET',
+        //       headers: { Accept: '*/*' },
+        //       mode: 'cors',
+        //       credentials: 'omit',
+        //     });
+        //     if (res.ok) {
+        //       const data = (await res.json()) as StoreDetail;
+        //       if (!alive) return;
+        //       setDetail(data);
+        //       setFav(!!data.favorite);
+        //       setErr(null);
+        //       return;
+        //     }
+        //   } catch (_) {
+        //     // fallthrough to generic error
+        //   }
+        // }
+        // setErr(err?.response?.data?.message || '상점 정보를 불러오지 못했어요.');
       } finally {
         if (alive) setLoading(false);
       }
@@ -159,12 +183,12 @@ export default function StoreDetailPage() {
   const heroBg = useMemo(() => detail?.imageUrl?.trim() || FALLBACK_HERO, [detail?.imageUrl]);
 
   // 썸네일 변환: -28px(떠있음) → 0px(카드 자리)로 보간
-  const thumbTransform = `translateY(${-28 * (1 - collapse)}px)`;
+  // const thumbTransform = `translateY(${-28 * (1 - collapse)}px)`;
 
   return (
     <>
       {/* 고정 헤더 */}
-      <div
+      {/* <div
         data-app-header
         style={{
           position: 'fixed',
@@ -175,9 +199,9 @@ export default function StoreDetailPage() {
           maxWidth: 412,
           zIndex: 9999,
         }}
-      >
-        <Header />
-      </div>
+      > */}
+      <Header />
+      {/* </div> */}
 
       <S.Wrap>
         {/* 고정 배경(히어로) — 스크롤해도 배경은 그대로 블러만 */}
@@ -196,7 +220,7 @@ export default function StoreDetailPage() {
         {/* 상점 카드 (스크롤 시 자연스럽게 위로 올라옴) */}
         <S.ShopCard>
           {/* 카드 좌측 썸네일: 처음엔 카드 밖 위로 떠 있다가 collapse=1이면 자리로 */}
-          <S.ThumbInCard src={heroBg} alt="" style={{ transform: thumbTransform }} />
+          <S.ThumbInCard src={heroBg} alt="" />
 
           <S.ShopContainer>
             <S.ChipRow>

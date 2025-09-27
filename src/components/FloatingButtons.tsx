@@ -5,17 +5,25 @@ import palette from '@lib/colorPalette';
 import StoreIcon from '@assets/StoreIcon.svg?react';
 import HomeIcon from '@assets/HomeIcon.svg?react';
 
-const FloatingContainer = styled.div`
-  position: fixed;
-  right: 20px;
-  bottom: 60px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  z-index: 9999;
-`;
+// const FloatingContainer = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   gap: 12px;
+
+//   position: fixed;
+//   top: 630px;
+//   left: 47%;
+//   transform: translateX(calc(195px - 100%));
+//   z-index: 9999;
+// `;
 
 const FloatingButton = styled.button<{ $primary?: boolean }>`
+  position: fixed;
+  top: 630px;
+  left: 47%;
+  transform: translateX(calc(195px - 100%));
+  z-index: 9999;
+
   width: 56px;
   height: 56px;
   border-radius: 50%;
@@ -31,8 +39,67 @@ const FloatingButton = styled.button<{ $primary?: boolean }>`
   /* 백그라운드 블러 효과 */
   backdrop-filter: blur(10px);
 
-  &:active {
+  /* &:active {
     transform: translateY(0);
+  } */
+
+  &:last-child {
+    position: fixed;
+    top: 698px;
+    left: 47%;
+    transform: translateX(calc(195px - 100%));
+    z-index: 9999;
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    position: fixed;
+    top: 620px;
+
+    left: 47%;
+    transform: translateX(calc(195px - 100%));
+    z-index: 9999;
+
+    &:last-child {
+      position: fixed;
+      top: 688px;
+
+      left: 47%;
+      transform: translateX(calc(195px - 100%));
+    }
+
+    @media (min-width: 402px) and (max-width: 430px) {
+      position: fixed;
+      top: 560px;
+
+      left: 47%;
+      transform: translateX(calc(190px - 100%));
+      z-index: 9999;
+
+      &:last-child {
+        position: fixed;
+        top: 628px;
+
+        left: 47%;
+        transform: translateX(calc(190px - 100%));
+      }
+    }
+
+    @media (min-width: 393px) and (max-width: 400px) {
+      position: fixed;
+      top: 550px;
+
+      left: 47%;
+      transform: translateX(calc(188px - 100%));
+      z-index: 9999;
+
+      &:last-child {
+        position: fixed;
+        top: 618px;
+
+        left: 47%;
+        transform: translateX(calc(188px - 100%));
+      }
+    }
   }
 `;
 
@@ -53,7 +120,8 @@ export default function FloatingButtons({ userRole, isLoggedIn }: FloatingButton
   };
 
   return (
-    <FloatingContainer>
+    <>
+      {/* <FloatingContainer> */}
       {/* 상인 전용 상점 등록 버튼 */}
       {isLoggedIn && userRole === 'MERCHANT' && (
         <FloatingButton onClick={handleStoreClick} $primary={true} aria-label="상점 등록">
@@ -65,6 +133,7 @@ export default function FloatingButtons({ userRole, isLoggedIn }: FloatingButton
       <FloatingButton onClick={handleHomeClick} aria-label="홈으로">
         <HomeIcon width={32} height={32} />
       </FloatingButton>
-    </FloatingContainer>
+      {/* </FloatingContainer> */}
+    </>
   );
 }

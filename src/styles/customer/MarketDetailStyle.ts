@@ -74,7 +74,7 @@ export const ShopCard = styled.div`
 export const ThumbInCard = styled.img`
   position: absolute;
   left: 0px;
-  top: -50px; /* 카드 윗부분 위로 28px 떠 있게 시작 */
+  top: -80px; /* 카드 윗부분 위로 28px 떠 있게 시작 */
   width: 72px;
   height: 72px;
   border-radius: 16px;
@@ -139,7 +139,7 @@ export const Section = styled.section`
   position: relative;
   padding: 16px 12px 0;
   background: var(--brand-background, #eef1ee);
-  height: 210px;
+  /* height: 210px; */
   z-index: 800;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;

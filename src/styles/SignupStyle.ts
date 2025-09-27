@@ -115,14 +115,14 @@ export const IconButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    background: rgba(0, 0, 0, 0.05);
+    /* background: rgba(0, 0, 0, 0.05); */
   }
 `;
 
 // 하단 제출 바 + 버튼
 export const BottomBar = styled.div`
   position: fixed;
-  bottom: 15%;
+  bottom: 18%;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -131,6 +131,10 @@ export const BottomBar = styled.div`
   display: grid;
   place-items: center;
   z-index: 1000;
+
+  @media (hover: none) and (pointer: coarse) {
+    bottom: 0%;
+  }
 `;
 
 export const PrimaryCTA = styled.button`

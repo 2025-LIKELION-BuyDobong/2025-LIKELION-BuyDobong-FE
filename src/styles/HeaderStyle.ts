@@ -3,7 +3,10 @@ import palette from '@lib/colorPalette';
 
 export const Header = styled.div`
   position: fixed;
-  top: 0;
+  /* top: 0; */
+  top: constant(safe-area-inset-top);
+  top: env(safe-area-inset-top);
+
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
@@ -16,6 +19,10 @@ export const Header = styled.div`
   background: ${palette.brandBackground};
   box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.05);
   z-index: 9999;
+
+  @media (hover: none) and (pointer: coarse) {
+    max-width: 100%;
+  }
 `;
 
 export const HeaderContent = styled.div`
@@ -38,21 +45,9 @@ export const BackButtonContainer = styled.button`
   transition: background-color 0.2s ease;
   z-index: 1;
 
-  &:hover {
-    background: ${palette.brandPrimary20};
-  }
-
-  &:active {
-    background: ${palette.brandPrimary30};
-  }
-
   svg {
     color: ${palette.textPrimary};
     transition: color 0.2s ease;
-  }
-
-  &:hover svg {
-    color: ${palette.brandPrimary};
   }
 `;
 
